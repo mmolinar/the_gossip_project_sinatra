@@ -32,4 +32,13 @@ attr_reader :author, :content
       gossip
     end
   end
+
+  def self.update(all_gossips)
+    
+    CSV.open(PATH + "db/gossip.csv", "w") do |csv|
+      all_gossips.each do |gossip|
+        csv << [gossip.author, gossip.content]
+      end
+    end
+  end
 end

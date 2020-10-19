@@ -3,12 +3,13 @@
     <title>The Gossip Project</title>
   </head>
   <body>
-    <h1>Get the latest on whats happening: </h1>
-     <% gossips.each do |gossip| %>
+    <h1>Get the latest on what's happening: </h1>
+     <% gossips.each_with_index do |gossip, index| %>
        <p>
          <%= gossip.author %><br/>
-         <%= gossip.content %>
+         <a href="/gossips/<%= index %>"><%= gossip.content %></a>
        </p>
      <% end %>
   </body>
 </html>
+

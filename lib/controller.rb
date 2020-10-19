@@ -17,4 +17,9 @@ class ApplicationController < Sinatra::Base
   get '/gossips/:id' do
     erb :show, locals: {potin: Gossip.find(params['id'].to_i)}
   end
+
+  post '/gossips/edit/:id' do
+    Gossip.update(params['id'].to_i).save
+    redirect '/'
+ end
 end
